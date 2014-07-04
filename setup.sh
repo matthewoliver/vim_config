@@ -17,3 +17,5 @@ mkdir -p ~/.fonts.conf.d/
 cd ~/.fonts.conf.d/
 wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
 cd -
+
+vim +BundleInstall +qall
