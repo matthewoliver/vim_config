@@ -12,6 +12,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'klen/python-mode'
 Bundle 'davidhalter/jedi-vim'
+Bundle 'chase/vim-ansible-yaml'
 
 " The bundles you install will be listed here
 
