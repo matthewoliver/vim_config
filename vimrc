@@ -97,3 +97,6 @@ silent! colorscheme solarized
 " If everything is too bright and high contrast, then export
 " TERM=xterm-256color and uncomment the following line:
 "let g:solarized_termcolors=256
+
+" Set spelling
+setlocal spell spelllang=en_au
