@@ -13,6 +13,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'klen/python-mode'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'chase/vim-ansible-yaml'
+Bundle 'altercation/vim-colors-solarized'
 
 " The bundles you install will be listed here
 
@@ -85,3 +86,7 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " Don't autofold code
 let g:pymode_folding = 0
+
+" Set solarized colour scheme
+set background=dark
+colorscheme solarized
