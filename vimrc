@@ -22,7 +22,6 @@ filetype plugin indent on
 " The rest of your config follows here
 
 syntax enable
-set bg=dark
 set incsearch
 set hlsearch
 set sw=2
@@ -34,6 +33,19 @@ set expandtab
 " following line
 "set backspace=indent,eol,start
 
+" Font Hack as the default font
+set guifont=Hack\ 9
+set laststatus=2
+"
+" Set solarized colour scheme
+
+" (optional) If everything is too bright and high contrast, then uncomment
+" the next 2 lines:
+"set term=xterm-256color
+"let g:solarized_termcolors=256
+set background=dark
+silent! colorscheme solarized
+
 augroup vimrc_autocmds
     autocmd!
     " highlight characters past column 80
@@ -41,10 +53,6 @@ augroup vimrc_autocmds
     autocmd FileType python match Excess /\%80v.*/
     autocmd FileType python set nowrap
     augroup END
-
-" Font Hack as the default font
-set guifont=Hack\ 9
-set laststatus=2
 
 " Nerdtree setup
 map <F2> :NERDTreeToggle<CR>
@@ -90,10 +98,3 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 " Don't autofold code
 let g:pymode_folding = 0
 
-" Set solarized colour scheme
-set background=dark
-silent! colorscheme solarized
-"
-" If everything is too bright and high contrast, then export
-" TERM=xterm-256color and uncomment the following line:
-"let g:solarized_termcolors=256
