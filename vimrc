@@ -21,7 +21,7 @@ filetype plugin indent on
 
 " The rest of your config follows here
 
-
+syntax enable
 set bg=dark
 set incsearch
 set hlsearch
@@ -30,6 +30,9 @@ set ts=2
 set expandtab
 "set textwidth=79
 
+" If your running OSX and backspace doesn't behave correctly uncomment this
+" following line
+"set backspace=indent,eol,start
 
 augroup vimrc_autocmds
     autocmd!
@@ -88,5 +91,9 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 let g:pymode_folding = 0
 
 " Set solarized colour scheme
+"
+" If everything is too bright and high contrast, then export
+" TERM=xterm-256color and uncomment the following line:
+"let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
