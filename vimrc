@@ -42,8 +42,8 @@ augroup vimrc_autocmds
     autocmd FileType python set nowrap
     augroup END
 
-" Powerline setup
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+" Font Hack as the default font
+set guifont=Hack\ 9
 set laststatus=2
 
 " Nerdtree setup
@@ -91,9 +91,9 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 let g:pymode_folding = 0
 
 " Set solarized colour scheme
+set background=dark
+silent! colorscheme solarized
 "
 " If everything is too bright and high contrast, then export
 " TERM=xterm-256color and uncomment the following line:
 "let g:solarized_termcolors=256
-set background=dark
-colorscheme solarized
