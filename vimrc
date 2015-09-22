@@ -29,6 +29,17 @@ set ts=2
 set expandtab
 "set textwidth=79
 
+" Set cursor crosshairs (column, line)
+"set cuc
+set cul
+
+" Hide buffers instead of closing them
+set hidden
+
+" Set list to show white space
+"set list
+"set listchars=tab:»·,trail:§,extends:¬,precedes:«,nbsp:§
+
 " If your running OSX and backspace doesn't behave correctly uncomment this
 " following line
 "set backspace=indent,eol,start
