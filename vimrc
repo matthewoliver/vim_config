@@ -14,6 +14,7 @@ Bundle 'klen/python-mode'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'chase/vim-ansible-yaml'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'majutsushi/tagbar'
 
 " The bundles you install will be listed here
 
@@ -52,7 +53,7 @@ set laststatus=2
 
 " (optional) If everything is too bright and high contrast, then uncomment
 " the next 2 lines:
-"set term=xterm-256color
+"set term=screen-256color
 "let g:solarized_termcolors=256
 set background=dark
 silent! colorscheme solarized
@@ -64,6 +65,13 @@ augroup vimrc_autocmds
     autocmd FileType python match Excess /\%80v.*/
     autocmd FileType python set nowrap
     augroup END
+
+" Tagbar setup
+" NOTE: you need ctags installed, so will keep this commented out for now
+"nmap <F8> :TagbarToggle<CR>
+" (Optional) If you are on OSX or have ctags (non-BSD) installed somewhere else not in
+" your path, use to following line to point to it.
+"let g:tagbar_ctags_bin="/usr/local/Cellar/ctags/5.8_1/bin/ctags"
 
 " Nerdtree setup
 map <F2> :NERDTreeToggle<CR>

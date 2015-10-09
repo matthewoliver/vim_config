@@ -6,6 +6,7 @@ To setup vim just run the setup.sh script.
  * git
  * wget
  * Linux system
+ * ctags (Optional)
 
 This script will then install all the bundles listed in the vimrc file.
 
@@ -25,6 +26,8 @@ git config --global core.editor vim
     * Git branch
     * File encoding
     * and more!
+  * Toggle a class browser (tagbar) split with <f8>
+    * tagbar not enabled by default as it requires ctags. Uncomment in vimrc to make it work.
 
 ### Python specific features
   * Show python docs with 'K'
@@ -35,3 +38,4 @@ git config --global core.editor vim
   * Uses vundle to manage vim plugins
   * Fugitive plugin for git
   * Jedi for auto complete
+  * If tagbar is setup <f8> will open a class browser.
