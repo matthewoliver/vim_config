@@ -26,16 +26,19 @@ git config --global core.editor vim
     * Git branch
     * File encoding
     * and more!
-  * Toggle a class browser (tagbar) split with <f8>
+  * Toggle a class browser (tagbar) split with <f9>
     * tagbar not enabled by default as it requires ctags. Uncomment in vimrc to make it work.
 
 ### Python specific features
   * Show python docs with 'K'
   * Runs through pyflakess and pep8 on save
+  * Auto fix pep8 has been mapped to <F8>
   * Python auto complete
   * Tracks trailing white spaces
   * Highlights column 80, so you can manage width properly
   * Uses vundle to manage vim plugins
   * Fugitive plugin for git
   * Jedi for auto complete
-  * If tagbar is setup <f8> will open a class browser.
+  * If tagbar is setup <f9> will open a class browser.
+
+NOTE: Hopefully gg=G and <F8> will now be enough to fix indents and at least the simple pep8 issues in your python code.
