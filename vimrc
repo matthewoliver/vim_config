@@ -68,7 +68,7 @@ augroup vimrc_autocmds
 
 " Tagbar setup
 " NOTE: you need ctags installed, so will keep this commented out for now
-"nmap <F8> :TagbarToggle<CR>
+"nmap <F9> :TagbarToggle<CR>
 " (Optional) If you are on OSX or have ctags (non-BSD) installed somewhere else not in
 " your path, use to following line to point to it.
 "let g:tagbar_ctags_bin="/usr/local/Cellar/ctags/5.8_1/bin/ctags"
@@ -100,6 +100,8 @@ let g:pymode_lint = 1
 let g:pymode_lint_checker = "pyflakes,pep8"
 " Auto check on save
 let g:pymode_lint_write = 1
+" Automatically fix PEP8 errors in the current buffer:
+noremap <F8> :PymodeLintAuto<CR>
 
 " Support virtualenv
 let g:pymode_virtualenv = 1
