@@ -39,3 +39,6 @@ git config --global core.editor vim
   * Fugitive plugin for git
   * Jedi for auto complete
   * If tagbar is setup <f8> will open a class browser.
+
+/\S\zs\s\+$ <--- Highlight whitespace at the end on lines.
+:%s/\s\+$//e <--- Delete whitespaces at the end of all lines.
