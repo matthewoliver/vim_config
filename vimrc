@@ -56,6 +56,7 @@ set laststatus=2
 set term=screen-256color
 let g:solarized_termcolors=256
 set background=dark
+" loading the solarized colorscheme is silent to prevent error during initial install
 silent! colorscheme solarized
 
 augroup vimrc_autocmds
@@ -118,4 +119,8 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " Don't autofold code
 let g:pymode_folding = 0
+
+" Finally, load any overrides from the local box
+" (silent in case it doesn't exist)
+silent! source ~/.vimrc_overrides
 
