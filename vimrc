@@ -80,6 +80,14 @@ augroup vimrc_autocmds
 " Nerdtree setup
 map <F2> :NERDTreeToggle<CR>
 
+" Airline Setup
+"  smarter tab line
+"let g:airline#extensions#tabline#enabled = 1
+"
+"  Separators can be configured independently for the tabline
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '|'
+
 " Python-mode
 " Activate rope
 " Keys:
