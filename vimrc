@@ -15,6 +15,8 @@ Bundle 'davidhalter/jedi-vim'
 Bundle 'chase/vim-ansible-yaml'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'majutsushi/tagbar'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'ctrlpvim/ctrlp.vim'
 
 " The bundles you install will be listed here
 
