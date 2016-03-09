@@ -68,6 +68,6 @@ cat << EOF
 All done!
 
 You can put custom settings in ~/.vimrc_overrides, e.g. run:
-echo setlocal spell spelllang=en_au >> ~/.vimrc_overides
+echo setlocal spell spelllang=en_au >> ~/.vimrc_overrides
 
 EOF
