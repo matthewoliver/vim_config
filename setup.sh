@@ -29,7 +29,8 @@ finish() {
 trap finish EXIT
 
 # Directory containing the script, so that we can copy other files out
-DIR="$(dirname "$(readlink -f "${0}")")"
+#DIR="$(dirname "$(readlink -f "${0}")")" # not supported on OSX
+DIR="$( cd "$( dirname "${0}" )" && pwd )"
 
 # Get Vundle, the vim bundler
 mkdir -p "${HOME}/.vim/bundle/"
