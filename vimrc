@@ -18,6 +18,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'majutsushi/tagbar'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'ctrlpvim/ctrlp.vim'
+Bundle 'christoomey/vim-tmux-navigator'
 
 " The bundles you install will be listed here
 
