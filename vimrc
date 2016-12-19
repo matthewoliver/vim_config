@@ -1,4 +1,8 @@
-set shell=/bin/bash
+" Vim needs a POSIX shell
+if $SHELL =~ 'bin/fish'
+    set shell=/bin/sh
+endif
+
 set nocompatible
 filetype off
 
