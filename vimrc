@@ -62,8 +62,8 @@ set laststatus=2
 
 " (optional) If everything is too bright and high contrast, then uncomment
 " the next 2 lines:
-"set term=screen-256color
-"let g:solarized_termcolors=256
+set term=screen-256color
+let g:solarized_termcolors=256
 set background=dark
 " loading the solarized colorscheme is silent to prevent error during initial install
 silent! colorscheme solarized
