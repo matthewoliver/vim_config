@@ -1,0 +1,11 @@
+" To disable a plugin, vundle expects you to just comment it out or remote the
+" line.
+"
+" This does not help when you want to keep the vimrc identical to upstream.
+"
+" To work around this, you can remove the plugin from the runtimepath.
+
+" Examples:
+
+" The example below disables vim-airline:
+"set runtimepath-=~/.vim/bundle/vim-airline

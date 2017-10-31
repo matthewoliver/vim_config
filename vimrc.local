@@ -1,0 +1,23 @@
+" Example for custom vimrc settings
+" 1) Copy to ~/.vimrc.local
+" 2) Set your custom settings
+" 3) Run ./setup.sh
+
+" Examples:
+
+" Linux style guide
+"set tabstop=8
+"set softtabstop=8
+"set shiftwidth=8
+"set noexpandtab
+
+" macro for println
+"function! InsertMarker()
+"	let string = "printf(\":::::::::: %s:%d:%s() - \\n\", FILE, LINE, func);"
+"	call append(line('.'), string)
+"endfunction
+
+" mm keys execute the marker
+"command Marker call InsertMarker()
+"map mm :Marker<enter>
+
