@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Enable debug if argument passed to script
 if [[ "${1}" =~ debug ]]; then
@@ -20,6 +20,7 @@ fi
 # Fail the whole script if one part fails
 set -eo pipefail
 finish() {
+	# shellcheck disable=SC2181
 	if [[ $? -ne 0 ]]; then
 		set +x
 		echo -e "\nSorry, something went wrong. Try running with debug, i.e.:"
@@ -37,7 +38,8 @@ mkdir -p "${HOME}/.vim/bundle/"
 if [[ -d "${HOME}/.vim/bundle/vundle/.git" ]]; then
 	( cd "${HOME}/.vim/bundle/vundle"
 	echo "Pulling vundle updates from GitHub"
-	git pull origin master &>/dev/null
+	git remote update &>/dev/null
+	git reset --hard origin/master &>/dev/null
 	cd - >/dev/null )
 else
 	echo "Cloning vundle from GitHub"
@@ -48,13 +50,21 @@ fi
 echo "Installing vimrc config"
 cp "${DIR}/vimrc" "${HOME}/.vimrc"
 
+# Copy the example local files if not already existing
+for config in vimrc.local vimrc.local.vundles vimrc.local.vundles.disable; do
+	if [[ ! -e "${HOME}/.${config}" ]]; then
+		cp "${DIR}/${config}" "${HOME}/.${config}"
+	fi
+done
+
 # Grab hack font if it doesn't exist
-if [[ ! "$(fc-list |grep -i hack)" ]]; then
+if [[ ! "$(fc-list |grep Hack-)" ]]; then
 	( mkdir -p "${HOME}/.fonts/"
 	cd "${HOME}/.fonts/"
 	echo "Downloading Hack font"
-	wget -q https://github.com/chrissimpkins/Hack/releases/download/\
-v2.019/Hack-v2_019-otf.zip -O hack.zip
+	wget -q https://github.com/source-foundry/Hack/releases/download\
+/v3.000/Hack-v3.000-ttf.zip \
+-O hack.zip
 	unzip -qu hack.zip && rm -f hack.zip
 	cd - >/dev/null
 	# Update fonts
@@ -62,13 +72,21 @@ v2.019/Hack-v2_019-otf.zip -O hack.zip
 fi
 
 # Install all the bundles specified in .vimrc
-vim +BundleInstall +qall
+vim +PluginInstall +qall
+
+# Vim detects mutt emails (with filetype plugin on) so set wrapping
+mkdir -p ~/.vim/ftplugin
+cat > ~/.vim/ftplugin/mail.vim << EOF
+setl tw=62
+setl fo+=aw
+EOF
 
 # Advise user of overrides
 cat << EOF
 All done!
 
-You can put custom settings in ~/.vimrc_overrides, e.g. run:
-echo setlocal spell spelllang=en_au >> ~/.vimrc_overrides
+* You can put custom settings in ~/.vimrc.local
+* Add your own vim bundles to ~/.vimrc.local.vundles
+* Disable vim bundles with ~/.vimrc.local.vundles.disable
 
 EOF
