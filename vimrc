@@ -109,6 +109,7 @@ nnoremap tp :tabprevious<CR>
 
 " Terminus setup
 let g:TerminusFocusReporting=0
+"let g:TerminusMouse=0
 
 " ctrlp setup
 let g:ctrlp_working_path_mode = 'r'
