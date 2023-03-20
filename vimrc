@@ -41,6 +41,19 @@ Plugin 'wincent/terminus' "Better terminal integration
 Plugin 'tpope/vim-fugitive' "The best Git wrapper of all time
 Plugin 'airblade/vim-gitgutter' "shows a git diff in the gutter (sign column)
 Plugin 'Xuyuanp/nerdtree-git-plugin' "NERDTree showing git status flags
+Plugin 'kablamo/vim-git-log'
+
+" IDE related
+"Plugin 'puremourning/vimspector' " vim debugger!
+"Plugin 'sagi-z/vimspectorpy', { 'do': { -> vimspectorpy#update() } }
+"Plugin 'matze/vim-move'
+"Plugin 'sheerun/vim-polyglot'
+Plugin 'ludovicchabant/vim-gutentags'
+"Plugin 'jakedouglas/exuberant-ctags'
+"Plugin 'LunarWatcher/auto-pairs'
+"Plugin 'maxboisvert/vim-simple-complete'
+Plugin 'vim-test/vim-test'
+Plugin 'tomtom/tcomment_vim'
 
 " Load any custom vundles
 silent! source ~/.vimrc.local.vundles
@@ -78,6 +91,7 @@ set spell
 nnoremap zn ]s
 nnoremap zp [s
 nnoremap zz :setlocal spell! spell?<CR>
+let maplocalleader = ","
 
 " Hide buffers instead of closing them
 set hidden
@@ -112,7 +126,7 @@ let g:TerminusFocusReporting=0
 "let g:TerminusMouse=0
 
 " ctrlp setup
-let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<c-x>'],
@@ -218,6 +232,17 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " Don't autofold code
 let g:pymode_folding = 0
+
+" jedi
+" let g:jedi#use_tabs_not_buffers = 0  " use buffers instead of tabs
+let g:jedi#show_call_signatures = "1"
+let g:jedi#goto_command = "<localleader>gt"
+let g:jedi#goto_assignments_command = "<localleader>ga"
+let g:jedi#goto_definitions_command = "<localleader>gg"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<localleader>u"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>r"
 
 " Finally, load any overrides from the local box
 " (silent in case it doesn't exist)
