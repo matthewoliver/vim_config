@@ -17,6 +17,8 @@ Plugin 'gmarik/vundle'
 " Navigation
 Plugin 'scrooloose/nerdtree' "File system explorer for the Vim editor
 Plugin 'ctrlpvim/ctrlp.vim' "Fuzzy file, buffer, mru, tag, etc finder
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } } " another fuzzy finder
+Plugin 'FelikZ/ctrlp-py-matcher' " Speeds up ctrlp tag search
 Plugin 'bogado/file-line' "Open a file in a given line, e.g. vim file:20
 
 " Language related
@@ -121,9 +123,13 @@ nnoremap bC :bdelete!<CR>
 nnoremap tn :tabnext<CR>
 nnoremap tp :tabprevious<CR>
 
+" git diff
+nnoremap Gd :Gvdiff<Space>HEAD~
+
+
 " Terminus setup
 let g:TerminusFocusReporting=0
-"let g:TerminusMouse=0
+let g:TerminusMouse=0
 
 " ctrlp setup
 let g:ctrlp_working_path_mode = 'ra'
@@ -138,11 +144,13 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
 \}
 
-let g:ctrlp_cmd = 'CtrlPMRU'
+let g:ctrlp_cmd = 'CtrlPMixed'
+" let g:ctrlp_cmd = 'CtrlPMRU'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 " Tagbar setup
 " NOTE: you need ctags installed
-nmap <F9> :TagbarToggle<CR>
+nmap <localleader>m :TagbarToggle<CR>
 " (Optional) If you are on OSX or have ctags (non-BSD) installed somewhere else not in
 " your path, use to following line to point to it.
 "let g:tagbar_ctags_bin="/usr/local/Cellar/ctags/5.8_1/bin/ctags"
@@ -234,7 +242,7 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 let g:pymode_folding = 0
 
 " jedi
-" let g:jedi#use_tabs_not_buffers = 0  " use buffers instead of tabs
+let g:jedi#use_tabs_not_buffers = 1  " use tabs instead of buffers
 let g:jedi#show_call_signatures = "1"
 let g:jedi#goto_command = "<localleader>gt"
 let g:jedi#goto_assignments_command = "<localleader>ga"
@@ -243,6 +251,9 @@ let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<localleader>u"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
+
+" remove trailing whilespace:
+nmap <localleader>w :%s/\s\+$//e<CR>
 
 " Finally, load any overrides from the local box
 " (silent in case it doesn't exist)

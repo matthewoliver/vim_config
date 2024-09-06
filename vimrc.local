@@ -21,3 +21,5 @@
 "command Marker call InsertMarker()
 "map mm :Marker<enter>
 
+nmap <silent> <localleader>t :TestNearest<CR>
+nmap <silent> <localleader>T :TestFile<CR>
